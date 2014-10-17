@@ -3,7 +3,7 @@
 Plugin Name: LessZns
 Plugin URI: http://plaisirdejouer.ca
 Description: Lesson System for Wordpress. Quizzes and levels
-Version: 0.0.1
+Version: 0.0.2
 Author: Adrian Toro
 Author URI: http://platanocafe.ca
 */
@@ -71,7 +71,7 @@ function lesszns_custom_lesson_category()
         'label' => __( 'Type','lesszns' ),
         'rewrite' => array( 'slug' => 'type' ),
         'show_in_nav_menus' => true,
-		'labels' => $labels,
+		'labels' => '',
 		'show_ui' => true,
 		'show_admin_column' => true,
 		'capabilities' => array (
@@ -91,7 +91,7 @@ function lesszns_custom_lesson_category()
         'label' => __( 'Level','lesszns' ),
 		'rewrite' => array( 'slug' => 'level' ),
         'show_in_nav_menus' => true,
-		'labels' => $labels,
+		'labels' => '',
 		'show_ui' => true,
 		'show_admin_column' => true,
 		'capabilities' => array (
@@ -261,7 +261,7 @@ function lesszns_custom_chord_type()
         'label' => __( 'Type','lesszns' ),
         'rewrite' => array( 'slug' => 'chord/type' ),
         'show_in_nav_menus' => false,
-		'labels' => $labels,
+		'labels' => '',
 		'show_ui' => true,
 		'show_admin_column' => true,
 		'capabilities' => array (
@@ -281,7 +281,7 @@ function lesszns_custom_chord_type()
         'label' => __( 'Inversion','lesszns' ),
 		'rewrite' => array( 'slug' => 'chord/inversion' ),
         'show_in_nav_menus' => false,
-		'labels' => $labels,
+		'labels' => '',
 		'show_ui' => true,
 		'show_admin_column' => true,
 		'capabilities' => array (
@@ -350,7 +350,7 @@ function lesszns_custom_rhythm_type()
         'label' => __( 'Level','lesszns' ),
         'rewrite' => array( 'slug' => 'rhythm/level' ),
         'show_in_nav_menus' => false,
-		'labels' => $labels,
+		'labels' => '',
 		'show_ui' => true,
 		'show_admin_column' => true,
 		'capabilities' => array (
@@ -530,7 +530,7 @@ add_filter( 'mce_css', 'plugin_mce_css' );
  *
 /* -------------------------------------------------- */
 // GET FEATURED IMAGE  
-function face3_admin_get_featured_image($post_ID) {  
+function wp_lesszns_admin_get_featured_image($post_ID) {  
     $post_thumbnail_id = get_post_thumbnail_id($post_ID);  
     if ($post_thumbnail_id) {  
         $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'featured_preview');  
@@ -539,15 +539,15 @@ function face3_admin_get_featured_image($post_ID) {
 }  
 
 // ADD NEW COLUMN
-function face3_admin_columns_head($defaults) {
+function wp_lesszns_admin_columns_head($defaults) {
 	$defaults['featured_image'] = 'Featured Image';
 	return $defaults;
 }
 
 // SHOW THE FEATURED IMAGE
-function face3_admin_columns_content($column_name, $post_ID) {
+function wp_lesszns_admin_columns_content($column_name, $post_ID) {
 	if ($column_name == 'featured_image') {
-		$post_featured_image = face3_admin_get_featured_image($post_ID); 
+		$post_featured_image = wp_lesszns_admin_get_featured_image($post_ID); 
 		if ($post_featured_image) {
 			echo '<img src="' . $post_featured_image . '" style="width: 100px; height:auto;"/>';
 		}
@@ -555,12 +555,12 @@ function face3_admin_columns_content($column_name, $post_ID) {
 }
 
 // Show featured images on posts
-add_filter('manage_posts_columns', 'face3_admin_columns_head');  
-add_action('manage_posts_custom_column', 'face3_admin_columns_content', 10, 2);  
+add_filter('manage_posts_columns', 'wp_lesszns_admin_columns_head');  
+add_action('manage_posts_custom_column', 'wp_lesszns_admin_columns_content', 10, 2);  
 
 // Show featured images on pages
-add_filter('manage_pages_columns', 'face3_admin_columns_head');  
-add_action('manage_pages_custom_column', 'face3_admin_columns_content', 10, 2);  
+add_filter('manage_pages_columns', 'wp_lesszns_admin_columns_head');  
+add_action('manage_pages_custom_column', 'wp_lesszns_admin_columns_content', 10, 2);  
 /* -------------------------------------------------- */
 
 // Change Author to Profile on URL:
@@ -608,7 +608,7 @@ function lesszns_show_recent_users() {
 
 
 function lesszns_add_tablature(){
-
+  $context = '';
   $tabs = '
   	<div id="tablature">
 			<div class="content">
