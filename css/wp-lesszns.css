@@ -1,0 +1,53 @@
+body { font-size:12px; }
+
+header#header div.logo h1 a { 
+	background-image: url(http://en.tucuatro.com/wp-content/themes/yoo_shelf_wp/styles/tucuatro/images/tucuatrologo.png);
+	background-size: cover;
+	display: block;
+	color: transparent;
+	font-size: 1px;
+	width: 30px;
+	height: 30px;
+}
+
+section#top {
+background-image: url('img/background.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+section#top > div.content {
+position: absolute;
+bottom: 0px;
+top: auto;
+left: 0;
+opacity: 1;
+background: rgba(0, 0, 0, 0.72);
+width: 100%;
+
+}
+
+/* *************************************************************** */
+/* SINGLE ARTICLE */
+/* *************************************************************** */
+section > div.content { opacity:1; max-width: 1040px; margin: 0 auto;}
+section > div.content > div { width: 980px; max-width:920px; padding:30px; margin:20px auto; text-align:left; display:inline-block; vertical-align:top; }
+
+section#title.single { padding: 80px; background-color: rgb(46, 30, 14) }
+section#title.single h1 { font-size:46px; color:white; }
+section#title.single div.subtitle { font-size:14px; } 
+
+section#lesson.single { margin-top: -140px; }
+section#lesson.single div.white { background: #F9F9F9; border: 1px solid rgb(230, 230, 230); }
+
+
+section#lesson.single div#lesson-main { height:300px; position:relative; overflow:hidden; }
+section#lesson.single div#lesson-main div#lesson-list { width: 275px; display: inline-block; vertical-align: top; font-size:14px; }
+section#lesson.single div#lesson-main div#lesson-video { position:absolute; top:0; right:0; width: 640px; height:360px; padding:0px; display: inline-block; vertical-align: top; }
+section#lesson.single div#lesson-main div#lesson-video { width: 640px; height:360px; }
+
+section#lesson.single div#lesson-checklist,
+section#lesson.single div#lesson-resources { width: 430px; height:220px; }
+section#lesson.single div#lesson-resources { font-size:14px; }
+
+ul.boxes li{ display:inline-block; vertical-align:top; width:400px; padding: 0 15px;}
